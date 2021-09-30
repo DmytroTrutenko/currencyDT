@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/main.css}"/>
+</head>
+<body>
+
+<main class="main">
+    <section class="content">
+        <H1>Hello, my name is Dmitry Trutenko</H1>
+        <p class="title">This is a test task for <a href="https://andevis.ee">Andevis.ee</a></p>
+        <h2>Currency converter</h2>
+        <div class="btn-wrap">
+            <a class="btn" th:href="@{/login}">Sign in</a>
+            <a class="btn" th:href="@{/registration}">Sign up</a>
+        </div>
+    </section>
+</main>
+
+<footer th:insert="blocks/footer::footer"></footer>
+
+</body>
+</html>

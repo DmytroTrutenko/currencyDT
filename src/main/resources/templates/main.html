@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Currency Converter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/main.css}"/>
+</head>
+<body>
+<header class="header">
+    <div class="layout">
+        <p class="title" th:inline="text">[[${#httpServletRequest.remoteUser}]]</p>
+        <form th:action="@{/logout}" method="post">
+            <input class="btn" type="submit" value="Sign Out"/>
+        </form>
+    </div>
+</header>
+
+<main class="main">
+    <section class="content convert-content">
+        <h1>Currency Converter</h1>
+        <div class="content_inner">
+
+            <div class="convert_body">
+                <form class="convertForm" id="convertForm">
+                    <div class="convertForm_inner">
+                        <div>
+                            <span>Amount</span>
+                            <input type="number" step="0.001" th:name="amount" class="amount form_conv" id="amount" required>
+                        </div>
+                        <div>
+                            <span>From</span>
+                            <select th:name="fromCurrency" class="fromCurrency form_conv" id="fromCurrency"
+                                    th:field="*{currencies}">
+                                <option th:each="currency: ${currencies}" th:value="${currency.currency}"
+                                        th:text="${currency.currency}"></option>
+                            </select>
+                        </div>
+                        <div>
+                            <span>To</span>
+                            <select th:name="toCurrency" class="toCurrency form_conv" id="toCurrency" th:field="*{currencies}">
+                                <option th:each="currency: ${currencies}" th:value="${currency.currency}"
+                                        th:text="${currency.currency}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn-wrap">
+                        <p class="result" id="result"></p>
+                        <button type="submit" id="btn-convert" class="btn-convert btn">Convert</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="history_body">
+                <p class="title">History</p>
+                <table class="table-history" id="table-history">
+                </table>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer th:insert="blocks/footer::footer"></footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/script.js"></script>
+</body>
+</html>
