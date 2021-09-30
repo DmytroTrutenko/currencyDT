@@ -29,7 +29,6 @@ h1 {
     font-size: 50px;
     margin-bottom: 40px;
     text-align: center;
-    text-shadow: 3px 3px 3px #afafaf;
 }
 
 h2 {
@@ -45,10 +44,11 @@ img {
 body {
     color: #ccc;
     font-family: "Arial", sans-serif;
+    background: url("../img/bg1.jpg") center center repeat;
 }
 
 .main {
-    background: url("../img/bg.jpg") center center repeat;
+
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -302,8 +302,9 @@ tr {
     align-items: center;
     font-size: 13px;
 }
-.footer .my_links a:hover{
-   text-decoration: underline;
+
+.footer .my_links a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 1057px) {
@@ -314,3 +315,51 @@ tr {
     }
 }
 
+@media (max-width: 650px) {
+    .content {
+        border-radius: 0;
+    }
+    .convertForm .result {
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 575px) {
+    .footer {
+        position: relative;
+    }
+
+    .content {
+        padding: 30px 15px;
+    }
+
+    .convertForm .btn-wrap {
+        justify-content: center;
+    }
+
+    .content_body {
+        padding: 0;
+    }
+
+    .form_conv {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .btn-wrap {
+        padding-top: 30px;
+    }
+
+    .error {
+        bottom: 140px;
+    }
+    .form_conv{
+        padding: 0;
+    }
+}
